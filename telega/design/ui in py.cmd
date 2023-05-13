@@ -1,1 +1,1 @@
-python -m PyQt5.uic.pyuic -x add_design.ui -o add_design.py
+python -m PyQt5.uic.pyuic -x design.ui -o design.py

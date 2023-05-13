@@ -1,12 +1,41 @@
-from settings.meta_engine import get_engine
+# from settings.meta_engine import get_engine
+import json
+import os
 
-engine = get_engine()
-conn = engine.connect()
+# engine = get_engine()
+# conn = engine.connect()
+
+if os.path.isfile("settings/coms.txt"):
+    coms = json.loads(open("settings/coms.txt", "r").read())
+else:
+    #coms = [{"": ""}, {"": ""}, {"": ""}]
+    coms = []
+
+if os.path.isfile("settings/data.txt"):
+    dat = json.loads(open("settings/data.txt", "r").read())
+else:
+    dat = {"API": "", "ID": 0}
+
+if os.path.isfile("settings/coms_list.txt"):
+    coms_list = json.loads(open("settings/coms_list.txt", "r").read())
+else:
+    coms_list = {}
+
+keys = []
+for d in coms:
+    if d != {'': ''}:
+        keys.append(list(d.keys())[0])
+
+closkeys = []
+for i in keys:
+    closkeys.append(str(i)+" закрыть")
 
 
 try:
-    TOKEN = conn.execute("""SELECT token FROM data WHERE id=1""").fetchone()[0]
-    user = conn.execute("""SELECT user_id FROM data WHERE id=1""").fetchone()[0]
+    TOKEN = dat["API"]
+    #TOKEN = "5604479678:AAHl4XIDksQNUJJpuNTiySHm-DzPFaME5uE"
+    user = int(dat["ID"])
+    #user = 657505708
 except:
     raise SystemExit('нет данных')
 

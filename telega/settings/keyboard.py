@@ -3,10 +3,13 @@ from aiogram.types import ReplyKeyboardRemove, \
     InlineKeyboardMarkup, InlineKeyboardButton
 
 
-off = KeyboardButton('/off')
-screen = KeyboardButton('/screen')
-cancel = KeyboardButton('/cancel')
-web = KeyboardButton('/web')
-myId = KeyboardButton('/myId')
-com_kb = ReplyKeyboardMarkup()
-com_kb.add(off).add(screen).add(cancel).add(web).add(myId)
+off = KeyboardButton('выключить')
+screen = KeyboardButton('скрин')
+cancel = KeyboardButton('отмена')
+web = KeyboardButton('снимок вебки')
+myId = KeyboardButton('id')
+coms_list = KeyboardButton('список команд')
+com_kb = ReplyKeyboardMarkup(resize_keyboard=True)
+com_kb.row(off, cancel, coms_list)
+#com_kb.add(screen)
+com_kb.row(screen, web, myId)
