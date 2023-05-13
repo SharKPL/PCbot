@@ -33,9 +33,9 @@ for i in keys:
 
 try:
     TOKEN = dat["API"]
-    #TOKEN = "5604479678:AAHl4XIDksQNUJJpuNTiySHm-DzPFaME5uE"
+    
     user = int(dat["ID"])
-    #user = 657505708
+   
 except:
     raise SystemExit('нет данных')
 
